@@ -1,0 +1,315 @@
+* {
+    /* margin n padding 0 for remove inconsistent layouts caused by h1 or p, giving a clean state */
+    margin: 0;
+    padding: 0;
+    /* the default = an element's width is calculated as width + padding + border. With border-box, the width you set already includes the padding and border.  */
+    box-sizing: border-box;
+}
+
+body {
+    font-family: arial, sans-serif;
+    background-color: #f5eded;
+    color: #3c4043;
+    /* min height: Ensures the body is at least as tall as the browser window's height (vh stands for "viewport height"). */
+    min-height: 100vh;
+    /* This turns the body into a flex container that arranges its direct children (header, main, footer) in a vertical column. This is key to making the footer stick to the bottom. */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.header {
+    /* Makes the .header a flex container, arranging its children in a row by default. */
+    display: flex;
+    /* Pushes all the items (links, icons) to the far right of the header. */
+    justify-content: flex-end;
+    align-items: center;
+    /* Adds internal spacing inside the header. It creates 15px of space on the top and bottom, and 20px of space on the left and right. */
+    padding: 15px 20px;
+    /* Adds 15px of space between each item inside the heade */
+    gap: 15px;
+     /* If the screen becomes too narrow to fit all the header items in one line, this property allows them to wrap onto a new line instead of overflowing. */
+    flex-wrap: wrap;
+}
+
+.header a {
+    color: #3c4043;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.header a:hover {
+    text-decoration: underline;
+}
+
+.apps-menu {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* grid for bentukannya tabel 3 titik" */
+.apps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    width: 16px;
+    height: 16px;
+}
+
+.apps-dot {
+    width: 4px;
+    height: 4px;
+    background-color: #5f6368;
+    border-radius: 50%;
+}
+
+.profile-pic {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #4285f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* Main content */
+.main {
+    /* all of these works together to perfectly center all content  both horizontally and vertically within the main area. */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    margin-top: -50px;
+}
+
+.logo {
+    margin-bottom: 30px;
+}
+
+.logo img {
+    height: 92px;
+}
+
+.logo-text {
+     /* simply apply the iconic Google brand colors to each individual letter, which was set up in the HTML using <span> tags. */
+    font-size: 90px;
+    font-weight: 400;
+    color: #4285f4;
+    letter-spacing: -5px;
+}
+
+.logo-text .g1 { color: #4285f4; }
+.logo-text .o1 { color: #ea4335; }
+.logo-text .o2 { color: #fbbc05; }
+.logo-text .g2 { color: #4285f4; }
+.logo-text .l { color: #34a853; }
+.logo-text .e { color: #ea4335; }
+
+/* Search container */
+.search-container {
+    width: 100%;
+    /* the search bar will be 100% of its container's width, but it will never get wider than 584px. */
+    max-width: 584px;
+    /* . It tells the browser that any child element with position: absolute should be positioned relative to this container. */
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.search-box {
+    width: 100%;
+    height: 44px;
+    border: 1px solid #dfe1e5;
+    border-radius: 24px;
+    padding: 0 45px;
+    font-size: 16px;
+    outline: none;
+    transition: box-shadow 0.3s;
+}
+
+.search-box:hover {
+    box-shadow: 0 2px 5px 1px rgba(64,60,67,.16);
+}
+
+.search-box:focus {
+    box-shadow: 0 2px 5px 1px rgba(64,60,67,.16);
+    border-color: transparent;
+}
+
+.search-icon {
+    /* Used on the icons (magnifying glass, mic, camera), this takes them out of the normal document flow and allows you to place them precisely within their nearest positioned ancestor (the .search-container). */
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    /* perfectly center an element vertically. */
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+}
+
+.search-icon svg {
+    width: 100%;
+    height: 100%;
+    fill: #9aa0a6;
+}
+
+.voice-icon, .camera-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+.voice-icon {
+    right: 52px;
+}
+
+.camera-icon {
+    right: 16px;
+}
+
+.voice-icon:hover, .camera-icon:hover {
+    background-color: #f8f9fa;
+}
+
+.voice-icon svg, .camera-icon svg {
+    width: 100%;
+    height: 100%;
+    fill: #4285f4;
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+.btn, .btn-lucky {
+    background-color: #f8f9fa;
+    border: 1px solid #f8f9fa;
+    border-radius: 4px;
+    color: #3c4043;
+    font-size: 14px;
+    margin: 11px 5px;
+    padding: 0 20px;
+    /* line-height: 27px; */
+    height: 36px;
+    min-width: 54px;
+    cursor: pointer;
+    transition: all 0.1s;
+    text-decoration: none;
+    margin: top 30px;
+    display:flex;
+    align-items: center;
+    justify-content:corner;
+}
+
+.btn:hover, .btn-lucky:hover {
+    box-shadow: 0 1px 1px rgba(0,0,0,.1);
+    background-color: #f1f3f4;
+    border: 1px solid #dadce0;
+    color: #202124;
+}
+
+
+
+/* Language */
+.language {
+    font-size: 13px;
+    color: #3c4043;
+}
+
+.language a {
+    color: #1a0dab;
+    text-decoration: none;
+    margin: 0 4px;
+}
+
+.language a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+.footer {
+    background-color: #f2f2f2;
+    border-top: 1px solid #dadce0;
+}
+
+.footer-top {
+    padding: 15px 30px;
+    font-size: 15px;
+    color: #70757a;
+    border-bottom: 1px solid #dadce0;
+}
+
+.footer-bottom {
+    display: flex;
+    /* This distributes the space inside the container. It places the first item (.footer-left) at the start and the last item (.footer-right) at the end, with all remaining space distributed evenly between them.  */
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    flex-wrap: wrap;
+}
+
+.footer-left, .footer-right {
+    display: flex;
+    gap: 30px;
+}
+
+.footer a {
+    color: #70757a;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header {
+        padding: 15px;
+        gap: 10px;
+    }
+
+    .logo-text {
+        font-size: 60px;
+    }
+
+    .search-container {
+        max-width: 90%;
+    }
+
+    .buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .footer-left, .footer-right {
+        gap: 15px;
+    }
+}
